@@ -2,17 +2,28 @@
     public class PemilihanHariDenganIf12 {
         public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
-            String dayName, dayType;
-            System.out.print("Input day name: ");
-            dayName = sc.nextLine();
-            if (dayName.equalsIgnoreCase("monday") || dayName.equalsIgnoreCase("tuesday") || dayName.equalsIgnoreCase("wednesday") || dayName.equalsIgnoreCase("thursday") || dayName.equalsIgnoreCase("friday")) {
+            String dayType;
+            int day;
+            System.out.print("Input day (1-7): ");
+            day = sc.nextInt();
+            if (day == 1) {
                 dayType = "Weekday";
-            } else if (dayName.equalsIgnoreCase("saturday") || dayName.equalsIgnoreCase("sunday")) {
+            } else if (day == 2) {
+                dayType = "Weekday";
+            } else if (day == 3) {
+                dayType = "Weekday";
+            } else if (day == 4) {
+                dayType = "Weekday";
+            } else if (day == 5) {
+                dayType = "Weekday";
+            } else if (day == 6) {
+                dayType = "Weekend";
+            } else if (day == 7) {
                 dayType = "Weekend";
             } else {
-                dayType = "Invalid day name";
+                dayType = "Invalid number";
             }
-            System.out.println(dayName + " is a " + dayType);
+            System.out.println(dayType);
             sc.close();
         }
     }
