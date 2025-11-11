@@ -13,5 +13,6 @@ public class Square12 {
             }
             System.out.println();
         }
+        input.close();
     }
 }

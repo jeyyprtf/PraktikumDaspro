@@ -18,6 +18,6 @@ public class Triangle12 {
             System.out.println();
             i++;
         }
-
+        input.close();
     }
 }
