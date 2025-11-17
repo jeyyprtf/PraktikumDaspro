@@ -21,7 +21,7 @@ public class SearchNilai12 {
 
         for (int i = 0; i < n; i++) {
             if (arrNilai[i] == key) {
-                hasil = i;
+                hasil = i+1;
                 break;
             }
         }
@@ -29,7 +29,7 @@ public class SearchNilai12 {
         System.out.println();
 
         if (hasil != -1) {
-            System.out.println("Nilai " + key + " ditemukan pada indeks ke-" + hasil);
+            System.out.println("Nilai " + key + " ditemukan pada mahasiswa ke-" + hasil);
         } else {
             System.out.println("Nilai yang dicari tidak ditemukan");
         }
