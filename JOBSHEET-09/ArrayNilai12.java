@@ -11,7 +11,12 @@ public class ArrayNilai12 {
         }
 
         for (int i = 0; i < nilaiAkhir.length; i++) {
-            System.out.println("Nilai akhir mahasiswa ke-" + (i + 1) + " adalah: " + nilaiAkhir[i]);
+            if (nilaiAkhir[i] > 70)  {       
+                System.out.println("Nilai akhir mahasiswa ke-" + (i + 1) + " adalah: " + nilaiAkhir[i] + " dinyatakan lulus");
+            } else {
+                System.out.println("Nilai akhir mahasiswa ke-" + (i + 1) + " adalah: " + nilaiAkhir[i] + " dinyatakan tidak lulus");
+            }
         }
     }
 }
+
