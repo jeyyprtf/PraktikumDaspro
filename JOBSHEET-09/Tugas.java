@@ -8,20 +8,17 @@ public class Tugas {
         
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("");
-        System.out.println("-------- SELAMAT DATANG --------");
-        System.out.println("");
-        System.out.print("berapa pesanan kamu ?\nketik 0 untuk keluar : ");
+        
         int jumlahPesanan = 0; 
-        if (jumlahPesanan == 0) {
-            System.out.println("Terima kasih telah berkunjung!");
-            scanner.close();
-            return;
-        }
-        int menuDipilih[] = new int[jumlahPesanan];
-        int porsiDipilih[] = new int[jumlahPesanan];
-        int totalBayar = 0;
-
+        do {
+            System.out.println("");
+            System.out.println("-------- SELAMAT DATANG --------");
+            System.out.println("");
+            System.out.print("berapa pesanan kamu ?\nketik 0 untuk keluar : ");
+            jumlahPesanan = scanner.nextInt();            int menuDipilih[] = new int[jumlahPesanan];
+            int porsiDipilih[] = new int[jumlahPesanan];
+            int totalBayar = 0;
+            
         for (int i = 0; i < jumlahPesanan; i++) {
             System.out.println("");
             for (int q = 0; q < daftarMenu.length; q++) {
@@ -47,9 +44,9 @@ public class Tugas {
             System.out.println("Anda memesan " + porsi + " porsi " + daftarMenu[indexMenu] + " dengan total harga Rp" + String.format("%.0f", totalHarga));
             totalBayar += totalHarga;
         }
-
         System.out.print("Total yang harus dibayar: Rp" + totalBayar);
         System.out.println("");
         scanner.close();
+    } while (jumlahPesanan != 0);
     }
 }
