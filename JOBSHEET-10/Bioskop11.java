@@ -28,4 +28,4 @@ public class Bioskop11 {
     }
 }
 
-// Percobaan 1
+// Percobaan 2.1
