@@ -4,28 +4,66 @@ public class BioskopWithScanner11 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int baris, kolom;
-        String nama, next;
+        String nama;
 
         String penonton[][] = new String[4][2];
+        boolean running = true;
+        
+        while (running) { 
+            System.out.print("\n--- MENU BIOSKOP ---\n1. Input Data Penonton\n2. Tampilkan Daftar Penonton\n3. Exit\n Pilih menu: ");
 
-        while (true) {
-            System.out.print("Masukkan nama: ");
-            nama = scanner.nextLine();
-            System.out.print("Masukkan baris: ");
-            baris = scanner.nextInt();
-            System.out.print("Masukkan kolom: ");
-            kolom = scanner.nextInt();
-            scanner.nextLine();
+            int menu = scanner.nextInt();
+            scanner.nextLine(); 
 
-            penonton[baris-1][kolom-1] = nama;
+            switch (menu) {
+                case 1:
+                    System.out.println("\n--- Input Data ---");
+                    while (true) {
+                        System.out.print("Masukkan nama: ");
+                        nama = scanner.nextLine();
+                        
+                        System.out.print("Masukkan baris (1-4): ");
+                        baris = scanner.nextInt();
+                        System.out.print("Masukkan kolom (1-2): ");
+                        kolom = scanner.nextInt();
+                        scanner.nextLine(); 
 
-            System.out.print("Ingin menambah penonton lagi? (y/n): ");
-            next = scanner.nextLine();
+                        if (baris >= 1 && baris <= 4 && kolom >= 1 && kolom <= 2) {
+                            penonton[baris-1][kolom-1] = nama;
+                        } else {
+                            System.out.println("Input tidak valid");
+                        }
 
-            if (next.equalsIgnoreCase("n")) {
-                break;
+                        System.out.print("Ingin menambah penonton lagi? (y/n): ");
+                        String next = scanner.nextLine();
+
+                        if (next.equalsIgnoreCase("n")) {
+                            break; 
+                        }
+                    }
+                    break;
+            
+                case 2:
+                    System.out.println("\n--- Daftar Penonton ---");
+                    for (int i = 0; i < penonton.length; i++) {
+                        for (int j = 0; j < penonton[i].length; j++) {
+                            if (penonton[i][j] != null) {
+                                System.out.println("Baris " + (i+1) + " Kolom " + (j+1) + ": " + penonton[i][j]);
+                            } else {
+                                System.out.println("Baris " + (i+1) + " Kolom " + (j+1) + ": ***");
+                            }
+                        }
+                    }
+                    break;
+
+                case 3:
+                    running = false;
+                    break;
+
+                default:
+                    System.out.println("Menu tidak valid");
+                    break;
             }
         }
-
     }
 }
