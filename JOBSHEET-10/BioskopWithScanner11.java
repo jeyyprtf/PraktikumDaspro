@@ -29,9 +29,16 @@ public class BioskopWithScanner11 {
                         scanner.nextLine(); 
 
                         if (baris >= 1 && baris <= 4 && kolom >= 1 && kolom <= 2) {
-                            penonton[baris-1][kolom-1] = nama;
+                            
+                            if (penonton[baris-1][kolom-1] == null) {
+                                penonton[baris-1][kolom-1] = nama;
+                                System.out.println("Data penonton berhasil disimpan");
+                            } else {
+                                System.out.println("Maaf, kursi tersebut sudah terisi");
+                            }
+
                         } else {
-                            System.out.println("Input tidak valid");
+                            System.out.println("Nomor baris/kolom tidak tersedia");
                         }
 
                         System.out.print("Ingin menambah penonton lagi? (y/n): ");
@@ -65,5 +72,6 @@ public class BioskopWithScanner11 {
                     break;
             }
         }
+        scanner.close();
     }
 }
