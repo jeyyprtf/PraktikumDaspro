@@ -54,11 +54,13 @@ public class BioskopWithScanner11 {
                     System.out.println("\n--- Daftar Penonton ---");
                     for (int i = 0; i < penonton.length; i++) {
                         for (int j = 0; j < penonton[i].length; j++) {
-                            if (penonton[i][j] != null) {
-                                System.out.println("Baris " + (i+1) + " Kolom " + (j+1) + ": " + penonton[i][j]);
-                            } else {
-                                System.out.println("Baris " + (i+1) + " Kolom " + (j+1) + ": ***");
+                            String namaPenonton = penonton[i][j];
+
+                            if (namaPenonton == null) {
+                                namaPenonton = "***";
                             }
+
+                            System.out.println("Baris " + (i+1) + " Kolom " + (j+1) + ": " + namaPenonton);
                         }
                     }
                     break;
