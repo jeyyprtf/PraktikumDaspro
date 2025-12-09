@@ -3,24 +3,39 @@ import java.util.Scanner;
 public class Kafe11 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        
         System.out.print("Masukkan nama pelanggan: ");
         String namaPelanggan = input.nextLine();
+        
         System.out.print("Apakah pelanggan adalah member? (true/false): ");
         boolean isMember = input.nextBoolean();
+        
         System.out.print("Masukkan kode promo (DISKON50/DISKON30): ");
         String kodePromo = input.next();
-        System.out.println(kodePromo);
-
-        System.out.println("");
-
+        
         Menu(namaPelanggan, isMember, kodePromo);
-        System.out.print("Masukkan pilihan menu (1-6): ");
-        int pilihanMenu = input.nextInt();
-        System.out.print("Masukkan banyak item: ");
-        int banyakItem = input.nextInt();
+        
+        int totalKeseluruhan = 0;
+        
+        while (true) {
+            System.out.print("\nMasukkan pilihan menu (1-6): ");
+            int pilihanMenu = input.nextInt();
+            System.out.print("Masukkan banyak item: ");
+            int banyakItem = input.nextInt();
 
-        int totalHarga = hitungTotalHarga11(pilihanMenu, banyakItem, kodePromo);
-        System.out.println("Total harga: Rp " + totalHarga);
+            int subTotal = hitungTotalHarga11(pilihanMenu, banyakItem, kodePromo);
+            
+            totalKeseluruhan += subTotal;
+
+            System.out.print("Apakah ingin memesan menu lain? (y/t): ");
+            String konfirmasi = input.next();
+
+            if (!konfirmasi.equalsIgnoreCase("y")) {
+                break;
+            }
+        }
+        
+        System.out.println("\nTotal keseluruhan pesanan Anda: Rp " + totalKeseluruhan);
     }
 
     public static void Menu(String namaPelanggan, boolean isMember, String kodePromo) {
